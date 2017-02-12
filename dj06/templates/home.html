@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block mytitle %}
+    Login | {{ block.super }}
+{% endblock %}
+
+{%  block bigBlock %}
+    {% if request.user.is_authenticated %}
+        <table style="width:100%">
+            <tr >
+                <th >Email</th>
+                <th>Username</th>
+                <th>Timestamp</th>
+            </tr>
+            {% for instance in queryset %}
+                <tr>
+                <td>{{ instance.email }}</td>
+                <td>{{ instance.username }}</td>
+                <td>{{ instance.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+   {% else %}
+        {% block upperContent %}
+            <div class="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        <h1>Sample Website</h1>
+                        <p>This is a sample project which was built for learning purpose only.</p>
+                        <p>
+                          <a class="btn btn-lg btn-info" href="../../components/#navbar" role="button">Join Us &raquo;</a>
+                        </p>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-4 container">
+                            <iframe width="355" height="200" src="https://www.youtube.com/embed/FOIjvHjK0Rw?start=330&autoplay=1" scrolling="no" frameborder="0" ></iframe>
+                    </div>
+                </div>
+            </div>
+            </div>
+        {% endblock  %}
+
+        {% block usernamePassword %}
+            <div class="row">
+                <div class="col-md-2">
+                    <p class="myTextAlignToCenter">This is sample useless text one </br>
+                        <i class="fa fa-bar-chart fa-5x" aria-hidden="true"></i>
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                    <p class="myTextAlignToCenter">This is sample useless text two</br></br>
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-twitter fa-stack-1x fa-4x"></i>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                    <p class="myTextAlignToCenter">This is sample useless bdfbtext three</br>
+                        <i class="fa fa-cog fa-spin fa-3x fa-fw fa-5x"></i>
+                        <span class="sr-only">Loading...</span>
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                    <p class="myTextAlignToCenter">This is sample useless ngf vfdbdfb text four
+                        <i class="fa fa-cc-visa fa-5x" aria-hidden="true" ></i>
+                    </p>
+                </div>
+
+                <div class="col-md-3 pull-right jumbotron ">
+                    <h2><b>Subscribe</b></h2>
+                    <form  method="POST" action="">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <br/><input class='btn btn-info ' type="submit" value="SignUp" />
+                    </form>
+
+                </div>
+
+                </div>
+
+        {% endblock %}
+    {% endif %}
+{% endblock %}
+

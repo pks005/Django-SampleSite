@@ -1,0 +1,22 @@
+{% include 'navbar.html' %}
+{% include 'head_css.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+
+
+<div class="row col-md-pull-2">
+    <div class="col-md-2 ">
+    </div>
+    <div class=" col-md-pull-2 textBoxSmoothEdges">
+        <form class="form-signin" method="POST" action="">{% csrf_token %}
+            <h1 class="contactform-signin-heading"> Contact Us</h1>
+
+            {{ form_c | crispy }}
+            </br><input class="btn  btn-info btn-block" type="submit" value="Send" />
+        </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
