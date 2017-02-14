@@ -32,13 +32,19 @@ def HomeView(request):
 def ContactView(request):
     form_c = ContactUsForm(request.POST or None)
 
-    send_mail(
-        'Subject here',
-        'Here is the message.',
-        settings.EMAIL_HOST_USER,
-        ['kumar.priyam55@gmail.com'],
-        fail_silently=False,
-    )
+    if form_c.is_valid():
+        full_Name = form_c.cleaned_data.get('full_name')
+        subject = form_c.cleaned_data.get('subject')
+        msg = 'Your message has been received. We will contact you asap.'
+        sub = 'Subject: sample mail'
+
+        send_mail(
+            sub,
+            msg,
+            settings.EMAIL_HOST_USER,
+            ['kumar.priyam55@gmail.com'],
+            fail_silently=False,
+        )
 
     context = {
           'form_c' : form_c,
