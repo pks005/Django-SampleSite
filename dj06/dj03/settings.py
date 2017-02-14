@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 #Added by me
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kumar.priyam554@gmail.com'
-EMAIL_HOST_PASSWORD = 'TryingDjango'
+EMAIL_HOST_PASSWORD = 'veyquwzumdxdwdpu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
