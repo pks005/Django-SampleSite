@@ -27,11 +27,3 @@ class ContactUsForm(forms.Form):
     subject = forms.CharField()
     message = forms.CharField()
 
-    msg = 'Your message has been received'
-    # send_mail(
-    #     '',
-    #     '',
-    #     'kumar.priyam554@gmail.com',
-    #     [''],
-    #     fail_silently=False,
-    # )
